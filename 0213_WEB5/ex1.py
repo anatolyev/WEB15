@@ -12,7 +12,6 @@ print(response)
 
 
 
-
 # Пример 2
 api_server = "https://static-maps.yandex.ru/v1"
 lon = "37.677751"
@@ -24,11 +23,8 @@ params = {
     "ll": ",".join([lon, lat]),
     "spn": ",".join([delta1, delta2]),
     "apikey": apikey,
-    "format": json
 }
 response = requests.get(api_server, params=params)
 if response:
     print(response, type(response))
-    # json_resp = response.json()
-    # print(json_resp)
 
