@@ -1,7 +1,7 @@
 import requests
 import json
 
-geocod_req = "https://geocode-maps.yandex.ru/1.x/?apikey=40d1649f-0493-4b70-98ba-98533de7710b&geocode=Якутск&format=json"
+geocod_req = "https://geocode-maps.yandex.ru/1.x/?apikey=8013b162-6b42-4997-9691-77b7074026e0&geocode=Якутск&format=json"
 response = requests.get(geocod_req)
 
 
