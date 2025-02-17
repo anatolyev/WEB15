@@ -10,7 +10,7 @@ address_ll = "37.588392,55.734036"
 
 search_params = {
     "apikey": api_key,
-    "text": "аптека",
+    "text": "остановка",
     "lang": "ru_RU",
     "ll": address_ll,
     "type": "biz"
