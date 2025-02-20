@@ -21,6 +21,23 @@ def image():
     return f'''<img src="{url_for('static', filename='/images/image.jpg')}"
                alt="Это сова!">'''
 
+@app.route("/sample_page")
+def sample_page():
+    # http://127.0.0.1:8080/sample_page
+    return f'''<!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <link rel="stylesheet" type="text/css" 
+                    href="{url_for('static', filename='/css/style.css')}">
+                    <title>Заголовок</title>
+                </head>
+                <body>
+                <h1>Первая веб-страница!</h1>
+                </body>
+                </html>'''
+
+
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
