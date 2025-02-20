@@ -46,10 +46,12 @@ def show_i():
     return f'''Счетчик: {i}'''
 
 
-@app.route("/greet/<username>")
-def greet(username):
+@app.route("/greet/<username>/<int:number>")
+def greet(username, number):
     # http://127.0.0.1:8080/greet/Пафнутий
-    return f'''Привет: {username}'''
+    return f'''Привет: {username}, тебе {number} лет.'''
+
+
 
 
 
