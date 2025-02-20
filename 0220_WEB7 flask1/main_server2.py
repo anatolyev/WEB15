@@ -37,6 +37,20 @@ def sample_page():
                 </body>
                 </html>'''
 
+i = 0
+@app.route("/show_i")
+def show_i():
+    # http://127.0.0.1:8080/show_i
+    global i
+    i +=1
+    return f'''Счетчик: {i}'''
+
+
+@app.route("/greet/<username>")
+def greet(username):
+    # http://127.0.0.1:8080/greet/Пафнутий
+    return f'''Привет: {username}'''
+
 
 
 if __name__ == '__main__':
