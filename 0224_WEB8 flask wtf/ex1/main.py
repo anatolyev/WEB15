@@ -8,10 +8,10 @@ app = Flask(__name__)
 @app.route("/index")
 def index():
     # http://127.0.0.1:8080/index
-    user = "Анатольев Алёша"
-    return render_template('index.html',
-                           title="Домашняя страница",
-                           username=user)
+    param = {'username': "Анатольев Алёша",
+             'title': "Домашняя страница"}
+
+    return render_template('index.html', **param)
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
