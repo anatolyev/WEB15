@@ -20,6 +20,12 @@ def index():
     return render_template('index.html', news=news)
 
 
+@app.route("/login")
+def login():
+    return render_template('index.html', news="Это страница логина")
+
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def reqister():
     form = RegisterForm()
@@ -38,13 +44,11 @@ def reqister():
             email=form.email.data,
             about=form.about.data
         )
-        # user.set_password(form.password.data)
+        user.set_password(form.password.data)
         db_sess.add(user)
         db_sess.commit()
         return redirect('/login')
     return render_template('register.html', title='Регистрация', form=form)
-
-
 
 
 

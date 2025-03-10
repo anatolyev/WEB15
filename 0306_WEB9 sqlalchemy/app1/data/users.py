@@ -22,6 +22,7 @@ class User(SqlAlchemyBase):
         return f'<User> {self.id} {self.name} {self.email}'
 
     def set_password(self, password):
+        print(password)
         self.hashed_password = generate_password_hash(password)
 
     def check_password(self, password):
