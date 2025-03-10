@@ -17,6 +17,12 @@ def load_user(user_id):
     db_sess = db_session.create_session()
     return db_sess.query(User).get(user_id)
 
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect('/')
+
 
 def main():
     db_session.global_init("db/blogs.db")
