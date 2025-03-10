@@ -21,8 +21,6 @@ def index():
         res.set_cookie("visit_count", "1", max_age=60)
     return res
 
-
-@app.route("/")
 @app.route("/session_flask")
 def session_flask():
     visit_count = session.get("visit_count", 0)
@@ -31,8 +29,6 @@ def session_flask():
     if session['visit_count'] > 9:
         session.pop('visit_count', None)
     return make_response(f"Вы пришли на эту страницу {visit_count} раз")
-
-
 
 if __name__ == '__main__':
     main()
