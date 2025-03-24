@@ -7,7 +7,10 @@ def log():
         i += 1
 
 if __name__ == '__main__':
-    logging.basicConfig(filename="ex1.log")
+    logging.basicConfig(
+        filename="ex1.log",
+        format="%(asctime)s %(levelname)s %(name)s %(message)s"
+    )
     log()
 
 
