@@ -1,5 +1,5 @@
 import logging
-from telegram.ext import Application, MessageHandler, filters
+from telegram.ext import Application, MessageHandler, filters, CommandHandler
 from config import BOT_TOKEN
 
 # Enable logging
@@ -14,9 +14,32 @@ logger = logging.getLogger(__name__)
 async def echo(update, context):
     await update.message.reply_text(update.message.text)
 
+
+async def start(update, context):
+    user = update.effective_user
+    await update.message.reply_html(
+        rf"Привет {user.mention_html()}! Я эхо-бот."
+        rf"Напишите мне что-нибудь, и я пришлю это назад!",
+
+    )
+
+
+async def help_command(update, context):
+    user = update.effective_user
+    await update.message.reply_text("Я пока ничего не умею и даже не умею помогать... "
+                                    "я только ваше эхо.")
+
+
+
 def main():
     application = Application.builder().token(BOT_TOKEN).build()
+    # Регистрация команд
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CommandHandler("help", help_command))
 
+
+
+    # Обработка и запуск (в конце)
     text_handler = MessageHandler(filters.TEXT, echo)
     application.add_handler(text_handler)
     application.run_polling()
