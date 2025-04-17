@@ -53,7 +53,7 @@ async def keyboard1():
     reply_keyboard = [['/address', '/phone'],
                       ['/site', '/work_time'],
                       # 8.
-                      ['/set 5', '/set 10', '/set 60', '/unset'],
+                      ['/set5', '/set 10', '/set 60', '/unset'],
                       # 9.
                       ['/survey', '/stop'],
                       ]
