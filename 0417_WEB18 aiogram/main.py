@@ -7,7 +7,7 @@ from aiogram import Bot, Dispatcher, html
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart, Command
-from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import Message, ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton
 
 # Bot token can be obtained via https://t.me/BotFather
 from config import BOT_TOKEN
@@ -30,6 +30,29 @@ dp = Dispatcher()
 async def start(message: Message):
     await message.reply("Привет", reply_markup=markup)
 
+@dp.message(Command('stop'))
+async def start(message: Message):
+    await message.reply("Пока", reply_markup=ReplyKeyboardRemove())
+
+@dp.message(Command('phone'))
+async def start(message: Message):
+    await message.reply("Телефон: 123-45-67")
+
+@dp.message(Command('help'))
+async def start(message: Message):
+    await message.reply("Тут будет описание или помощь")
+
+@dp.message(Command('address'))
+async def start(message: Message):
+    await message.reply("Адрес организации")
+
+@dp.message(Command('site'))
+async def start(message: Message):
+    await message.reply("Сайт организации")
+
+@dp.message(Command('work_time'))
+async def start(message: Message):
+    await message.reply("Рабочее время: бесконечно")
 
 @dp.message(CommandStart())
 async def command_start_handler(message: Message) -> None:
